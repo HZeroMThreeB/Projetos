@@ -14,6 +14,6 @@ O `service` ***NGINX*** ***PRECISA ESTAR *** com endpoint-mode em DNSRR - DNS Ro
 
 
 Depois disso, você precisará de um arquivo `haproxy.cfg` dentro do `/etc` configurado adequadamente. Então, basta:
-`docker service create --replicas 1 --name haproxy-service --network NETWORK_NAME --publish published=80,target=80,protocol=tcp,mode=ingress --mount type=bind,src=/etc/haproxy/,dst=/etc/haproxy,ro=true --dns=127.0.0.11 HAPROXY_IMAGE_NAME_AND_TAG`
+`docker service create --replicas 1 --name haproxy-service --network NETWORK_NAME --publish published80,target80,protocoltcp,modeingress --mount typebind,src/etc/haproxy/,dst/etc/haproxy,rotrue --dns127.0.0.11 HAPROXY_IMAGE_NAME_AND_TAG`
 
 Teremos ***uma réplica*** de nome `haproxy-service`, que fará parte da network `NETWORK_NAME` e o serviço terá a porta 80 publicada por ***redirect*** da porta 80 do ***Docker Host***, específico pro protocolo ***TCP*** e a rede estará em modo ***ingress***. O tipo de `mount` é ***Bind Mounting***, a origem da montagem será o diretório `/etc/haproxy/` do ***Docker Host*** dentro do `/etc/haproxy` do container. O servidor DNS será ***127.0.0.11*** e a imagem você escolhe.
