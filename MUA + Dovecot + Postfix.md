@@ -1,4 +1,4 @@
-Nosso projeto consiste num ***servidor de e-mail*** [[Postfix]] para manipular o protocolo [[SMTP - Simple Mail Transfer Protocol]], que será acessado por meio do cliente ***Mozilla Thunderbird***. Quem irá permitir o acesso às mailboxes dos usuários será o protocolo [[IMAP - Internet Message Access Protocol]], que será manipulado por meio do [[Dovecot - Insecure]].
+Nosso projeto consiste num ***servidor de e-mail*** Postfix para manipular o protocolo SMTP - Simple Mail Transfer Protocol, que será acessado por meio do cliente ***Mozilla Thunderbird***. Quem irá permitir o acesso às mailboxes dos usuários será o protocolo IMAP - Internet Message Access Protocol, que será manipulado por meio do Dovecot - Insecure.
 
 As recomendações são para que o servidor ***IMAP*** esteja na mesma máquina do servidor ***SMTP***, já que a separação deles, se não for muito bem tratada e num caso bem específico, pode resultar em latência no serviço.
 
