@@ -5,12 +5,12 @@ O ***conjunto de containers*** (serviço) não será feito com ***VIP - Virtual 
 
 
 #### Instruções 
-Você vai precisar de um `service` com ao menos dois (poderia ser um, mas aí na haveria ***load balance***) containers ***NGINX***, você pode criar com:
+Você vai precisar de um `service` com ao menos dois (poderia ser um, mas aí nâo haveria ***load balance***) containers ***NGINX***, você pode criar com:
 `docker service create --network NETWORK_NAME -d --name SERVICE_NAME --replicas 10 --endpoint-mode dnsrr`
 
 Não publicaremos porta alguma para o `service` ***NGINX***, pois estamos utilizando ***A MESMA REDE DO `SERVICE` HAProxy***
 
-O `service` ***NGINX*** ***PRECISA ESTAR *** com endpoint-mode em DNSRR - DNS Round Robin, caso esteja como VIP - Virtual IP, o ***HAProxy*** reconhecerá apenas um único endereço IP (afinal, em modo VIP, é disponibilizado apenas um endereço IP para o serviço) e não haverá balanceamento de carga por meio do ***HAProxy***, ele servirá apenas como um "proxy comum" e quem fará o balanceamento de carga será a própria ***Docker Swarm Engine***.
+O `service` ***NGINX*** ***PRECISA ESTAR*** com endpoint-mode em DNSRR - DNS Round Robin, caso esteja como VIP - Virtual IP, o ***HAProxy*** reconhecerá apenas um único endereço IP (afinal, em modo VIP, é disponibilizado apenas um endereço IP para o serviço) e não haverá balanceamento de carga por meio do ***HAProxy***, ele servirá apenas como um "proxy comum" e quem fará o balanceamento de carga será a própria ***Docker Swarm Engine***.
 
 
 Depois disso, você precisará de um arquivo `haproxy.cfg` dentro do `/etc` configurado adequadamente. Então, basta:
