@@ -9,4 +9,4 @@ As recomendações são para que o servidor ***IMAP*** esteja na mesma máquina 
 `Mozilla Thunderbird` - é o cliente SMTP, que fará envio de e-mails utilizando também o protocolo ***SMTP*** e acessará às inboxes por meio do ***IMAP***
 
 
-Ao chegar à ==etapa de configuração== do ***Mozilla Thunderbird***, basta adicionar as credenciais para login e ele deve detectar as suas configurações automaticamente.
+Ao chegar à etapa de configuração do ***Mozilla Thunderbird***, basta adicionar as credenciais para login e ele deve detectar as suas configurações automaticamente.
