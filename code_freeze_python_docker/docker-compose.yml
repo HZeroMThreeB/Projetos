@@ -1,0 +1,72 @@
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    container_name: gitlabCon
+    restart: always
+    hostname: gitlab
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://dockergitlab'
+    networks:
+      gitlab:
+        ipv4_address: 172.33.0.1
+    ports:
+      - "8080:80"
+      - "2222:22"
+    volumes:
+      - config:/etc/gitlab
+      - logs:/var/log/gitlab
+      - data:/var/opt/gitlab
+    shm_size: 256m
+
+  dind:
+    container_name: dind
+    environment:
+      - DOCKER_TLS_CERTDIR=/certs
+    image: docker:dind
+    privileged: true
+    restart: always
+    networks:
+      gitlab:
+        ipv4_address: 172.33.0.2
+        aliases:
+          - docker
+    ports:
+      - "2376:2376"
+    tty: true
+    volumes:
+      - docker-cache:/var/lib/docker
+      - certs:/certs/client
+
+  runner:
+    container_name: docker-runner
+    restart: always
+    image: gitlab/gitlab-runner:alpine
+    depends_on:
+      - dind
+    environment:
+      - DOCKER_HOST=tcp://docker:2376
+      - DOCKER_CERT_PATH=/certs/client
+      - DOCKER_TLS_VERIFY=1
+    networks:
+      gitlab:
+        ipv4_address: 172.33.0.3
+    volumes:
+      - runner-config:/etc/gitlab-runner
+      - certs:/certs/client
+
+networks:
+  gitlab:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.33.0.0/16
+          gateway: 172.33.1.1
+
+volumes:
+  config:
+  docker-cache:
+  logs:
+  data:
+  certs:
+  runner-config:
