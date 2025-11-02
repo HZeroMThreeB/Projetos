@@ -1,0 +1,9 @@
+master-user-group:
+  - root
+  - marcos
+  - paulo
+  - severino
+
+freezing-dates:
+  from: 2025-10-18
+  to: 2025-10-22

@@ -1,0 +1,12 @@
+stages:
+  - unique
+
+codeFreeze-job:
+  image: python:3.15.0a1-alpine3.22
+  stage: unique
+  tags:
+    - docker
+  script:
+    - |
+      apk add curl
+      curl --header "Authorization: Bearer HTTP-ACCESS-TOKEN" http://GITLAB_CONTAINER_NAME/api/v4/projects/PROJECT_ID/repository/files/config.yml/raw?ref=main -vv  
