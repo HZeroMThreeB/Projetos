@@ -2,3 +2,5 @@ Neste projeto, temos uma aplicação WordPress rodando em 3 ***NODES*** distinto
 
 
 Levando em consideração que o MySQL será um container rodando em um dos ***NODES***, numa estrutura MySQL -> Container -> NODE, e a forma com que armazenaremos os dados do MySQL será um volume, caso o container morra ou seja desativado por algum acaso, nós PRECISAMOS que o container "reviva" somente num ***NODE*** específico, já que é muito difícil manter uma estrutura de mais de um banco de dados (como no caso das réplicas do WordPress, por exemplo) e o novo ***NODE*** em que esse container pode ressurgir, não terá acesso ao volume em que o container MySQL estará atrelado
+
+inspiração para o projeto: Mateus Muller
