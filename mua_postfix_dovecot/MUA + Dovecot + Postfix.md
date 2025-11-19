@@ -10,3 +10,5 @@ As recomendações são para que o servidor ***IMAP*** esteja na mesma máquina 
 
 
 Ao chegar à etapa de configuração do ***Mozilla Thunderbird***, basta adicionar as credenciais para login e ele deve detectar as suas configurações automaticamente.
+
+inspiração para o projeto: Mateus Muller
