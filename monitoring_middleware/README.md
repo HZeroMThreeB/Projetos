@@ -10,3 +10,4 @@ Nossa stack de monitoramento é composta por:
 - ***Python Webhook***(container/Dockerfile) - Recebe os alertas e permite a livre manipulação deles. É uma simples rota `/alerts` que recebe um `HTTP POST` contendo um ***JSON*** e armazena num arquivo dentro de um diretório chamado ***dump_data***. O diretório ***dump_data*** estará em bind mountig com o diretório (criado automaticamente) ***appJsonStore*** do nosso Docker Host.
 
 
+inspiração para o projeto: Mateus Muller
