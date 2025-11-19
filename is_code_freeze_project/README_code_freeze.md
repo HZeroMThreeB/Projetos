@@ -51,3 +51,5 @@ A partir do momento em que o ***Docker Runner*** estiver devidamente configurado
 
 ***NOTA***:
 O `docker-compose.yml` foi gerado com base nas entradas descritas para cada imagem dentro do próprio ***Docker HUB***, alguns `services:` utilizam ajustes simples para comunicação, mas de resto é tranquilo de achar e remontar.
+
+inspiração para o projeto: Mateus Muller
