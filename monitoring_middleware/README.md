@@ -1,7 +1,7 @@
 Este projeto consiste no monitoramento de recursos de um sistema operacional. Utilizaremos containers para isolar as aplicações e facilitar o gerenciamento.
 
 Nossa stack de monitoramento é composta por:
-- ***CAdvisor***(container) - Realiza a coleta de métricas do sistema operacional e alimenta o ***Prometheus***.
+- ***CAdvisor***(container) - Realiza a coleta de métricas do sistema operacional e alimenta o ***Prometheus*** por meio da exposição na rota `metrics`.
 
 - ***Prometheus***(container) - Representa o núcleo da nossa stack, já que é ele quem irá realizar o scrapping das métricas fornecidas pelo ***CAdvisor***, armazená-las em seu próprio ***TSDB*** (Time Series Database) e enviar para o ***AlertManager***.
 
