@@ -1,0 +1,12 @@
+groups:
+- name: containers
+  rules:
+ 
+  - alert: container_memory_too_high
+    expr: sum by (name) (container_memory_usage_bytes{name=~"monitoring.*"}) > 64
+    for: 3s
+    labels:
+      severity: critical
+    annotations:
+      summary: "Check this alert!!!"
+      description: "The container {{ $labels.name }} memory is greater than 64 bytes. If I were in your shoes, I would be in a state of panic."
